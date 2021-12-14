@@ -1,1 +1,1 @@
-# Singularit-Extensions
+# Singularity-Extensions
