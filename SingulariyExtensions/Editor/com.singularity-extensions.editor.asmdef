@@ -1,0 +1,16 @@
+{
+    "name": "singularityextensions.editor",
+    "rootNamespace": "",
+    "references": [
+        "GUID:4b5c58e764a3fd64a9395abb602ea169"
+    ],
+    "includePlatforms": [],
+    "excludePlatforms": [],
+    "allowUnsafeCode": false,
+    "overrideReferences": false,
+    "precompiledReferences": [],
+    "autoReferenced": true,
+    "defineConstraints": [],
+    "versionDefines": [],
+    "noEngineReferences": false
+}
