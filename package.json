@@ -9,6 +9,7 @@
   "licensesUrl": "https://example.com/licensing.html",
   "dependencies": {
     "com.unity.addressables": "1.19.14"
+    "com.sirenix.odin-serializer": "https://github.com/TeamSirenix/odin-serializer.git"
   },
   "author": {
     "name": "Singularity Lab",
