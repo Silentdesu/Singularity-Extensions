@@ -1,5 +1,5 @@
 {
-    "name": "singularityextensions.editor",
+    "name": "com.singularity-extensions.editor",
     "rootNamespace": "",
     "references": [
         "GUID:4b5c58e764a3fd64a9395abb602ea169"
