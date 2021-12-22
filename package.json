@@ -2,7 +2,7 @@
   "name": "com.singularity.singularity-extensions",
   "version": "1.0.0",
   "displayName": "Singularity Extensions",
-  "description": "Before installing this framework you have to install 'Odin-Serializer'",
+  "description": "Singularity Lab Framework",
   "unity": "2021.2",
   "documentationUrl": "https://example.com/",
   "changelogUrl": "https://example.com/changelog.html",
