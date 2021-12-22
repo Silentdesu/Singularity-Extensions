@@ -2,14 +2,13 @@
   "name": "com.singularity.singularityextensions",
   "version": "1.0.0",
   "displayName": "Singularity Extensions",
-  "description": "Singularity Lab Framework",
+  "description": "Before installing this framework you have to install 'Odin-Serializer'",
   "unity": "2021.2",
   "documentationUrl": "https://example.com/",
   "changelogUrl": "https://example.com/changelog.html",
   "licensesUrl": "https://example.com/licensing.html",
   "dependencies": {
     "com.unity.addressables": "1.19.14",
-    "com.sirenix.odin-serializer": "https://github.com/TeamSirenix/odin-serializer.git"
   },
   "author": {
     "name": "Singularity Lab",
