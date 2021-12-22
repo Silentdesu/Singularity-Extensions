@@ -4,9 +4,6 @@
   "displayName": "Singularity Extensions",
   "description": "Singularity Lab Framework",
   "unity": "2021.2",
-  "documentationUrl": "https://example.com/",
-  "changelogUrl": "https://example.com/changelog.html",
-  "licensesUrl": "https://example.com/licensing.html",
   "dependencies": {
     "com.unity.addressables": "1.19.14"
   },
