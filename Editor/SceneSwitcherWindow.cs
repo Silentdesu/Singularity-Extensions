@@ -8,7 +8,8 @@ namespace Singularity.Scripts.Utils.Editor
 {
     public class SceneSwitcherWindow : EditorWindow
     {
-         private List<string> _scenesPaths;
+        public string DevFolderName;
+        private List<string> _scenesPaths;
 
         [MenuItem("Tools/Scene Switcher")]
         private static void ShowWindow()
@@ -44,7 +45,7 @@ namespace Singularity.Scripts.Utils.Editor
             {
                 foreach (string scenesPath in _scenesPaths)
                 {
-                    if (!scenesPath.Contains("_IdleSiege/_Scenes"))
+                    if (!scenesPath.Contains($"_Main/_Scenes"))
                     {
                         continue;
                     }
@@ -79,6 +80,19 @@ namespace Singularity.Scripts.Utils.Editor
             var splitedScene = scenePath.Split('/');
             
             return splitedScene[splitedScene.Length - 1].Split('.')[0];
+        }
+
+        private string GetDevFolder()
+        {
+            foreach (var folder in AssetDatabase.GetSubFolders("Assets"))
+            {
+                if (folder.Contains("_"))
+                {
+                    return folder.Split('/')[1];
+                }
+            }
+
+            return String.Empty;
         }
     }
 }
