@@ -21,8 +21,9 @@ namespace Singularity.Scripts.Utils
         
         private static System.Random rng = new System.Random();
         // private static UnityEngine.Random uRandom = new UnityEngine.Random();
+        
         /// <summary>
-        /// Shuffles list elements
+        /// Shuffles list elements.
         /// </summary>
         public static void Shuffle<T>(this IList<T> list)
         {
@@ -37,6 +38,9 @@ namespace Singularity.Scripts.Utils
             }
         }
 
+        /// <summary>
+        /// Shuffles array elements.
+        /// </summary>
         public static void Shuffle<T>(this T[] targetArray)
         {
             int n = targetArray.Length;
@@ -50,6 +54,9 @@ namespace Singularity.Scripts.Utils
             }
         }
         
+        /// <summary>
+        /// Get random element from list.
+        /// </summary>
         public static T GetRandomElement<T>(this IList<T> list)
         {
             return list[rng.Next(list.Count)];
@@ -102,7 +109,7 @@ namespace Singularity.Scripts.Utils
         }
 
         /// <summary>
-        /// No allocation GetComponent
+        /// No allocation GetComponent.
         /// </summary>
         private static List<Component> m_ComponentCache = new List<Component>();
 
@@ -153,8 +160,7 @@ namespace Singularity.Scripts.Utils
             canvasGroup.interactable = false;
             canvasGroup.blocksRaycasts = false;
         }
-
-
+        
         public static void EnableGroup(this CanvasGroup canvasGroup)
         {
             canvasGroup.alpha = 1;
@@ -162,6 +168,9 @@ namespace Singularity.Scripts.Utils
             canvasGroup.blocksRaycasts = true;
         }
         
+        /// <summary>
+        /// Assign Layer to all child gameObjects.
+        /// </summary>
         public static void SetLayerRecursively(this GameObject obj, int newLayer)
         {
             if (obj == null)
@@ -181,6 +190,9 @@ namespace Singularity.Scripts.Utils
             }
         }
 
+        /// <summary>
+        /// Convert long type to string with comma.
+        /// </summary>
         public static string ToBigNumberString(this long number)
         {
             if (number < 1000)
@@ -205,6 +217,9 @@ namespace Singularity.Scripts.Utils
             }
         }
         
+        /// <summary>
+        /// Convert double type to string with comma.
+        /// </summary>
         public static string ToBigNumberString(this double number)
         {
             if (number < 1000)
@@ -229,6 +244,9 @@ namespace Singularity.Scripts.Utils
             }
         }
 
+        /// <summary>
+        /// Convert double type of seconds to string with suffix 's'
+        /// </summary>
         public static string AddSuffixString(this double seconds)
         {
             return string.Format("{0:0.0}s", seconds);

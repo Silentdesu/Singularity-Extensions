@@ -1,3 +1,5 @@
+#if UNITY_EDITOR
+
 using System.IO;
 using UnityEditor;
 using UnityEngine;
@@ -19,7 +21,7 @@ namespace Singularity.Scripts.Utils.Editor
             AssetDatabase.Refresh();
         }
 
-        private static string GetAssetPath () 
+        private static string GetAssetPath() 
         {
             var path = AssetDatabase.GetAssetPath(Selection.activeObject);
             
@@ -38,7 +40,7 @@ namespace Singularity.Scripts.Utils.Editor
             return path;
         }
 
-        private static void CreateEmptyFolder (string folderPath) 
+        private static void CreateEmptyFolder(string folderPath) 
         {
             if (!Directory.Exists(folderPath)) 
             {
@@ -54,3 +56,5 @@ namespace Singularity.Scripts.Utils.Editor
         }
     }
 }
+
+#endif

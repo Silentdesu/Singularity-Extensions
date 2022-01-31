@@ -25,6 +25,10 @@ namespace Singularity.Scripts.Utils.Editor
             _scenesPaths = scenesGUIDs.Select(AssetDatabase.GUIDToAssetPath).ToList();
         }
 
+        /// <summary>
+        ///     Path should be hardcoded as '_Main/_Scenes'
+        ///     or you can your own path.
+        /// </summary>
         private void OnGUI()
         {
             if (GUILayout.Button("Reload"))
@@ -45,7 +49,7 @@ namespace Singularity.Scripts.Utils.Editor
             {
                 foreach (string scenesPath in _scenesPaths)
                 {
-                    if (!scenesPath.Contains($"_Main/_Scenes"))
+                    if (!scenesPath.Contains($"_Project/_Scenes"))
                     {
                         continue;
                     }
@@ -82,7 +86,7 @@ namespace Singularity.Scripts.Utils.Editor
             return splitedScene[splitedScene.Length - 1].Split('.')[0];
         }
 
-        private string GetDevFolder()
+        private string GetMainFolder()
         {
             foreach (var folder in AssetDatabase.GetSubFolders("Assets"))
             {
