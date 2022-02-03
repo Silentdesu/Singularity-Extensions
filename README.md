@@ -1,3 +1,3 @@
 # Singularity-Extensions
 
-ATTENTION! Only for URP projects.
+This package using Odin-Serializer.
