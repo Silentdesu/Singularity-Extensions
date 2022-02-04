@@ -1,5 +1,5 @@
-﻿using System.Collections;
-using Singularity.Scripts.Utils;
+﻿using SingularityLab.Scripts.Utils;
+using System.Collections;
 using UnityEngine;
 
 namespace SingularityLab.Scripts.UI
