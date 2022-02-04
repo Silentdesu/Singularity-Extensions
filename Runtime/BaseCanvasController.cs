@@ -1,7 +1,7 @@
 using Sirenix.OdinInspector;
 using UnityEngine;
 
-namespace SingularityLab.Scripts.Utils
+namespace Singularity.Scripts.Utils
 {
     public abstract class BaseCanvasController : SerializedMonoBehaviour
     {

@@ -1,7 +1,7 @@
 ﻿using System.Collections;
 using UnityEngine;
 
-namespace SingularityLab.Scripts.Utils
+namespace Singularity.Scripts.Utils
 {
     public abstract class BaseUIPanel : MonoBehaviour
     {

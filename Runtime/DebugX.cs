@@ -1,7 +1,7 @@
 ﻿using System.Text;
 using UnityEngine;
 
-namespace SingularityLab.Scripts.Utils
+namespace Singularity.Scripts.Utils
 {
     public static class DebugX
     {

@@ -1,5 +1,4 @@
 ﻿using System;
-using SingularityLab.Scripts.Utils;
 using UnityEngine;
 using UnityEngine.AddressableAssets;
 using UnityEngine.ResourceManagement.AsyncOperations;

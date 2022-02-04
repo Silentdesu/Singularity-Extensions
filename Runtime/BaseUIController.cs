@@ -1,7 +1,6 @@
-﻿using Singularity.Scripts.Utils;
-using UnityEngine;
+﻿using UnityEngine;
 
-namespace SingularityLab.Scripts.UI
+namespace Singularity.Scripts.UI
 {
     public class BaseUIController<T> : BaseInstance<T> where T : MonoBehaviour
     {
