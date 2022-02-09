@@ -5,8 +5,7 @@
   "description": "Singularity Lab Framework",
   "unity": "2021.2",
   "dependencies": {
-    "com.unity.addressables": "1.19.14",
-    "com.unity.render-pipelines.universal": "10.8.1"
+    "com.unity.addressables": "1.19.14"
   },
   "author": {
     "name": "Singularity Lab",
