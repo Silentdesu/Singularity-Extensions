@@ -1,11 +1,13 @@
 {
-  "name": "com.singularity.singularity-extensions",
+  "name": "com.singularity-lab.extensions",
   "version": "1.0.1",
-  "displayName": "Singularity Extensions",
+  "displayName": "Singularity Lab Extensions",
   "description": "Singularity Lab Framework",
   "unity": "2021.2",
   "dependencies": {
-    "com.unity.addressables": "1.19.14"
+    "com.unity.addressables": "1.19.14",
+    "com.unity.render-pipelines.universal": "10.8.1",
+    "com.coffee.upm-git-extension": "https://github.com/mob-sakai/UpmGitExtension.git"
   },
   "author": {
     "name": "Singularity Lab",
