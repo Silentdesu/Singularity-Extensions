@@ -1,6 +1,6 @@
 {
   "name": "com.singularity-lab.extensions",
-  "version": "1.0.2",
+  "version": "1.0.3",
   "displayName": "Singularity Lab Extensions",
   "description": "Singularity Lab Framework",
   "unity": "2021.2",
