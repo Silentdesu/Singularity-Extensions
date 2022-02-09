@@ -3,7 +3,6 @@
   "version": "1.0.4",
   "displayName": "Singularity Lab Extensions",
   "description": "Singularity Lab Framework",
-  "unity": "2021.2",
   "dependencies": {
     "com.unity.addressables": "1.19.14"
   },
