@@ -21,6 +21,20 @@ namespace Singularity.Scripts.Utils
         
         private static System.Random rng = new System.Random();
         // private static UnityEngine.Random uRandom = new UnityEngine.Random();
+       
+        /// <summary>
+        /// Swaps two items in a list
+        /// </summary>
+        /// <typeparam name="T"></typeparam>
+        /// <param name="list"></param>
+        /// <param name="i"></param>
+        /// <param name="j"></param>
+        public static void Swap<T>(this IList<T> list, int i, int j)
+        {
+            T temporary = list[i];
+            list[i] = list[j];
+            list[j] = temporary;
+        }
         
         /// <summary>
         /// Shuffles list elements.
