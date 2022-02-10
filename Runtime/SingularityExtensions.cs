@@ -51,7 +51,7 @@ namespace Singularity.Scripts.Utils
                 list[n] = value;
             }
         }
-
+        
         /// <summary>
         /// Shuffles array elements.
         /// </summary>
@@ -113,7 +113,9 @@ namespace Singularity.Scripts.Utils
             }
         }
 
-        //Clear Array
+        /// <summary>
+        /// Clear an array
+        /// </summary> 
         public static void Clear<T>(this T[] array)
         {
             for (int i = 0; i < array.Length; i++)
