@@ -1,7 +1,8 @@
-﻿using System.Text;
-using UnityEngine;
+﻿using System.Diagnostics;
+using System.Text;
+using Debug = UnityEngine.Debug;
 
-namespace Singularity.Scripts.Utils
+namespace SingularityLab.Runtime
 {
     public static class DebugX
     {
@@ -19,19 +20,19 @@ namespace Singularity.Scripts.Utils
         private const string WarningDebuggerHeader = "<color=yellow>‼️</color><color=#ff0000><b>Warnning: </b></color>";
         private const string SuccessDebuggerHeader = "<color=yellow>☑</color><color=#11ff00><b>Success: </b></color>";
         
-        static StringBuilder sb = new StringBuilder();
-       
-        private static StringBuilder _stringBuilder = new StringBuilder();
+        private static readonly StringBuilder _stringBuilder = new StringBuilder();
 
+        [Conditional("UNITY_EDITOR"), Conditional("DEVELOPMENT_BUILD")]
         private static void Log(string messageType, string message)
         {
-            if (!Debug.isDebugBuild || Application.platform != RuntimePlatform.WindowsEditor) return;
+#if UNITY_EDITOR || DEVELOPMENT_BUILD   
             
             _stringBuilder.Clear();
             _stringBuilder.Append(messageType);
             _stringBuilder.Append(message);
                 
             Debug.Log(_stringBuilder);
+#endif
         }
             
         public static void Event(string message)

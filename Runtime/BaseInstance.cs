@@ -1,7 +1,7 @@
 using Sirenix.OdinInspector;
 using UnityEngine;
 
-namespace Singularity.Scripts.Utils
+namespace SingularityLab.Runtime
 {
     [DefaultExecutionOrder(-100)]
     public class BaseInstance<T> : SerializedMonoBehaviour where T : MonoBehaviour

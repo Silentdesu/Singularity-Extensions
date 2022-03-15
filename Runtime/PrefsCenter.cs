@@ -1,11 +1,11 @@
 ﻿using UnityEngine;
 
-namespace Singularity.Scripts.Utils
+namespace SingularityLab.Runtime
 {
-    public static class PrefsCenter
+    public static partial class PrefsCenter
     {
         /// <summary>
-        ///     Example how to create a prefs key.
+        /// Example how to create a prefs key.
         /// </summary>
         public static long Debug
         {

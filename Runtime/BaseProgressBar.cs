@@ -3,7 +3,7 @@ using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
 
-namespace Singularity.Scripts.Utils
+namespace SingularityLab.Runtime
 {
     public abstract class BaseProgressBar : MonoBehaviour
     {

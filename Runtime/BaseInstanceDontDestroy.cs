@@ -1,6 +1,6 @@
 using UnityEngine;
 
-namespace Singularity.Scripts.Utils
+namespace SingularityLab.Runtime
 {
     [DefaultExecutionOrder(-500)]
     public class BaseInstanceDontDestroy<T> : BaseInstance<T> where T : MonoBehaviour

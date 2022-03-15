@@ -1,7 +1,7 @@
 ﻿using System.Collections;
 using UnityEngine;
 
-namespace Singularity.Scripts.Utils
+namespace SingularityLab.Runtime
 {
     public abstract class BaseUIPanel : MonoBehaviour
     {
@@ -26,11 +26,32 @@ namespace Singularity.Scripts.Utils
             }
         }
 
+        public virtual void HideDelayed(float delay = 0f)
+        {
+            delay = Mathf.Max(0f, delay);
+            
+            if (delay > 0f)
+            {
+                MainThreadRunner.Instance.StartCoroutine(HideDelayedRoutine(delay));
+            }
+            else
+            {
+                HideInstant();
+            }
+        }
+
         private IEnumerator ShowDelayedRoutine(float delay = 0f)
         {
             yield return new WaitForSeconds(delay);
 
             ShowInstant();
+        }
+
+        private IEnumerator HideDelayedRoutine(float delay = 0f)
+        {
+            yield return new WaitForSeconds(delay);
+            
+            HideInstant();
         }
 
         public virtual void ShowInstant()

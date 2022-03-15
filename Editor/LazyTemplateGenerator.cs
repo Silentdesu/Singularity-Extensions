@@ -4,7 +4,7 @@ using System.IO;
 using UnityEditor;
 using UnityEngine;
 
-namespace Singularity.Scripts.Utils.Editor
+namespace SingularityLab.Editor
 {
     sealed class LazyTemplateGenerator : ScriptableObject
     {

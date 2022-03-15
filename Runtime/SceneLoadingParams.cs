@@ -1,6 +1,6 @@
 ﻿using UnityEngine.SceneManagement;
 
-namespace Singularity.Scripts.Utils
+namespace SingularityLab.Runtime
 {
     public class SceneLoadingParams
     {

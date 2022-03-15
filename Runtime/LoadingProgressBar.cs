@@ -2,7 +2,7 @@
 using UnityEngine;
 using UnityEngine.ResourceManagement.AsyncOperations;
 
-namespace Singularity.Scripts.Utils
+namespace SingularityLab.Runtime
 {
     public class LoadingProgressBar : IAsyncOperationLoadingProgressController
     {

@@ -1,8 +1,8 @@
 ﻿using System;
 
-namespace Singularity.Scripts.Utils
+namespace SingularityLab.Runtime
 {
-    public class CustomAction
+    public partial class CustomAction
     {
         private Action _action;
 
@@ -16,13 +16,18 @@ namespace Singularity.Scripts.Utils
             _action -= action;
         }
 
+        public void RemoveAllListeners()
+        {
+            _action = null;
+        }
+
         public void Invoke()
         {
             _action?.Invoke();
         }
     }
 
-    public class CustomAction<T>
+    public partial class CustomAction<T>
     {
         private Action<T> _action;
 
@@ -34,6 +39,11 @@ namespace Singularity.Scripts.Utils
         public void RemoveListener(Action<T> action)
         {
             _action -= action;
+        }
+        
+        public void RemoveAllListeners()
+        {
+            _action = null;
         }
 
         public void Invoke(T arg)

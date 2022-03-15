@@ -1,8 +1,9 @@
 ﻿using System.Collections;
+using SingularityLab.Runtime.Extensions;
 using TMPro;
 using UnityEngine;
 
-namespace Singularity.Scripts.Utils
+namespace SingularityLab.Runtime
 {
     public class LoadingScreenController : BaseInstanceDontDestroy<LoadingScreenController>
     {

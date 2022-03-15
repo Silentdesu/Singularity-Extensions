@@ -1,6 +1,6 @@
 ﻿using UnityEngine;
 
-namespace Singularity.Scripts.Utils
+namespace SingularityLab.Runtime
 {
     public class BaseCastedInstance<TBase> : BaseInstance<TBase> where TBase : MonoBehaviour
     {
