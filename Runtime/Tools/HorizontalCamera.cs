@@ -1,6 +1,6 @@
 using UnityEngine;
 
-namespace SingularityLab.Runtime
+namespace SingularityLab.Runtime.Tools
 {
     [ExecuteInEditMode]
     public class HorizontalCamera : MonoBehaviour

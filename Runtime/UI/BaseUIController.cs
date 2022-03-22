@@ -1,6 +1,7 @@
-﻿using UnityEngine;
+﻿using SingularityLab.Runtime.Singletons;
+using UnityEngine;
 
-namespace SingularityLab.Runtime
+namespace SingularityLab.Runtime.UI
 {
     public class BaseUIController<T> : BaseInstance<T> where T : MonoBehaviour
     {
