@@ -50,6 +50,16 @@ namespace SingularityLab.Runtime.Extensions
             }
         }
 
+        public static List<Transform> GetAllChilds(this Transform parent)
+        {
+            List<Transform> tempList = new();
+
+            foreach (Transform child in parent)
+                tempList.Add(child);
+
+            return tempList;
+        }
+
         public static void DestroyAllChildren(this Transform parent)
         {
             foreach (Transform child in parent)
