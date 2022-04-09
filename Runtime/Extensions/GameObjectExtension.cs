@@ -52,10 +52,21 @@ namespace SingularityLab.Runtime.Extensions
 
         public static List<Transform> GetAllChilds(this Transform parent)
         {
-            List<Transform> tempList = new();
+            List<Transform> tempList = new List<Transform>();
 
             foreach (Transform child in parent)
                 tempList.Add(child);
+
+            return tempList;
+        }
+
+        public static List<T> GetChildsByType<T>(this Transform parent)
+        {
+            List<T> tempList = new List<T>();
+
+            foreach (Transform child in parent)
+                if (child.TryGetComponent(out T component))
+                    tempList.Add(component);
 
             return tempList;
         }
