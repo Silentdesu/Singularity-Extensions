@@ -5,7 +5,7 @@ namespace SingularityLab.Runtime.Extensions
 {
     public static partial class TextureExtension
     {
-        public static void SetTexture(this Image image, Texture texture, bool preserveAspect = false)
+        public static void SetTexture(this Image image, in Texture texture, in bool preserveAspect = false)
         {
             Rect newRect = new Rect(0.0f, 0.0f, texture.width, texture.height);
             Vector2 pivot = new Vector2(0.5f, 0.5f);

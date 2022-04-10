@@ -1,7 +1,6 @@
+using SingularityLab.Runtime.Scenes;
 using System.Collections.Generic;
 using System.Linq;
-using SingularityLab.Runtime;
-using SingularityLab.Runtime.Scenes;
 using UnityEditor;
 using UnityEditor.SceneManagement;
 using UnityEngine;
@@ -63,7 +62,7 @@ namespace SingularityLab.Editor
             EditorGUILayout.EndVertical();
         }
 
-        private void AddButton(SceneButtonParams sceneButtonParams)
+        private void AddButton(in SceneButtonParams sceneButtonParams)
         {
             EditorGUILayout.BeginHorizontal();
 
@@ -81,7 +80,7 @@ namespace SingularityLab.Editor
             EditorGUILayout.EndHorizontal();
         }
 
-        private string GetSceneName(string scenePath)
+        private string GetSceneName(in string scenePath)
         {
             var splitedScene = scenePath.Split('/');
             

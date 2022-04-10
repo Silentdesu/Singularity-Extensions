@@ -4,7 +4,7 @@ namespace SingularityLab.Runtime.Extensions
 {
     public static partial class VectorExtension
     {
-        public static Vector2 GetPositionOnScreen(this RectTransform rect, Camera camera = null)
+        public static Vector2 GetPositionOnScreen(this RectTransform rect, in Camera camera = null)
         {
             return RectTransformUtility.WorldToScreenPoint(camera, rect.position);
         }
@@ -18,7 +18,7 @@ namespace SingularityLab.Runtime.Extensions
             );
         }
 
-        public static bool IsEqual(this Vector3 originPos, Vector3 pos, float threshold = 0.1f)
+        public static bool IsEqual(this Vector3 originPos, in Vector3 pos, in float threshold = 0.1f)
         {
             var distance = Vector3.Distance(originPos, pos);
             

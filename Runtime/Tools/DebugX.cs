@@ -26,7 +26,7 @@ namespace SingularityLab.Runtime.Tools
         private static readonly StringBuilder _stringBuilder = new StringBuilder();
 
         [Conditional("UNITY_EDITOR"), Conditional("DEVELOPMENT_BUILD")]
-        private static void Log(ReadOnlySpan<char> messageType, ReadOnlySpan<char> message)
+        private static void Log(in ReadOnlySpan<char> messageType, in ReadOnlySpan<char> message)
         {
 #if UNITY_EDITOR || DEVELOPMENT_BUILD
 
@@ -38,73 +38,73 @@ namespace SingularityLab.Runtime.Tools
 #endif
         }
 
-        public static void Event(ReadOnlySpan<char> message)
+        public static void Event(in ReadOnlySpan<char> message)
         {
             Log(EventManagerDebuggerHeader, message);
         }
 
-        public static void OnStart(ReadOnlySpan<char> message)
+        public static void OnStart(in ReadOnlySpan<char> message)
         {
             Log(RunOnStartDebuggerHeader, message);
         }
 
-        public static void Data(ReadOnlySpan<char> message)
+        public static void Data(in ReadOnlySpan<char> message)
         {
             Log(StatDataDebuggerHeader, message);
         }
         
-        public static void Manager(ReadOnlySpan<char> message)
+        public static void Manager(in ReadOnlySpan<char> message)
         {
             Log(ManagerDebuggerHeader, message);
         }
         
-        public static void Audio(ReadOnlySpan<char> message)
+        public static void Audio(in ReadOnlySpan<char> message)
         {
             Log(AudioDebuggerHeader, message);
         }
         
-        public static void UI(ReadOnlySpan<char> message)
+        public static void UI(in ReadOnlySpan<char> message)
         {
             Log(UIDebuggerHeader, message);
         }
 
-        public static void Track(ReadOnlySpan<char> message)
+        public static void Track(in ReadOnlySpan<char> message)
         {
             Log(TrackDebuggerHeader, message);
         }
         
-        public static void Count<T>(IEnumerable<T> enumerable)
+        public static void Count<T>(in IEnumerable<T> enumerable)
         {
             ReadOnlySpan<char> temp = $"Count => {enumerable.Count()}";
             Log(StatDataDebuggerHeader, temp);
         }
 
-        public static void SceneLoading(ReadOnlySpan<char> message)
+        public static void SceneLoading(in ReadOnlySpan<char> message)
         {
             Log(LoadingDebuggerHeader, message);
         }
         
-        public static void SceneLoaded(ReadOnlySpan<char> message)
+        public static void SceneLoaded(in ReadOnlySpan<char> message)
         {
             Log(LoadedDebuggerHeader, message);
         }
         
-        public static void SceneUnloaded(ReadOnlySpan<char> message)
+        public static void SceneUnloaded(in ReadOnlySpan<char> message)
         {
             Log(UnloadedDebuggerHeader, message);
         }
         
-        public static void Error(ReadOnlySpan<char> message)
+        public static void Error(in ReadOnlySpan<char> message)
         {
             Log(ErrorDebuggerHeader, message);
         }
         
-        public static void Warning(ReadOnlySpan<char> message)
+        public static void Warning(in ReadOnlySpan<char> message)
         {
             Log(WarningDebuggerHeader, message);
         }
         
-        public static void Success(ReadOnlySpan<char> message)
+        public static void Success(in ReadOnlySpan<char> message)
         {
             Log(SuccessDebuggerHeader, message);
         }

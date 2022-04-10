@@ -1,11 +1,11 @@
 ﻿namespace SingularityLab.Runtime.Scenes
 {
-    public class SceneButtonParams
+    public ref struct SceneButtonParams
     {
         public string Name { get; private set; }
         public string Path { get; private set; }
     
-        public SceneButtonParams(string name, string path)
+        public SceneButtonParams(in string name, in string path)
         {
             Name = name;
             Path = path;

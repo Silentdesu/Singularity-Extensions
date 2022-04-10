@@ -8,7 +8,7 @@ namespace SingularityLab.Runtime.Extensions
         /// Parse from string to enum
         /// </summary>
         /// <param name="value">parsed string</param>
-        private static T ParseEnum<T>(string value)
+        private static T ParseEnum<T>(in string value)
         {
             return (T) Enum.Parse(typeof(T), value, true);
         }

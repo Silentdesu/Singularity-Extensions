@@ -30,7 +30,7 @@ namespace SingularityLab.Runtime.Extensions
         /// <summary>
         /// Assign Layer to all child gameObjects.
         /// </summary>
-        public static void SetLayerRecursively(this GameObject obj, int newLayer)
+        public static void SetLayerRecursively(this GameObject obj, in int newLayer)
         {
             if (obj == null)
             {

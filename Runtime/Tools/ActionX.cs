@@ -2,16 +2,16 @@
 
 namespace SingularityLab.Runtime.Tools
 {
-    public partial class CustomAction
+    public partial class ActionX
     {
         private Action _action;
 
-        public void AddListener(Action action)
+        public void AddListener(in Action action)
         {
             _action += action;
         }
         
-        public void RemoveListener(Action action)
+        public void RemoveListener(in Action action)
         {
             _action -= action;
         }
@@ -21,22 +21,25 @@ namespace SingularityLab.Runtime.Tools
             _action = null;
         }
 
-        public void Invoke()
+        /// <summary>
+        /// Checking for null.
+        /// </summary>
+        public void InvokeSafe()
         {
             _action?.Invoke();
         }
     }
 
-    public partial class CustomAction<T>
+    public partial class ActionX<T>
     {
         private Action<T> _action;
 
-        public void AddListener(Action<T> action)
+        public void AddListener(in Action<T> action)
         {
             _action += action;
         }
 
-        public void RemoveListener(Action<T> action)
+        public void RemoveListener(in Action<T> action)
         {
             _action -= action;
         }
@@ -46,22 +49,25 @@ namespace SingularityLab.Runtime.Tools
             _action = null;
         }
 
-        public void Invoke(T arg)
+        /// <summary>
+        /// Checking for null.
+        /// </summary>
+        public void InvokeSafe(T arg)
         {
             _action?.Invoke(arg);
         }
     }
     
-    public partial class CustomAction<T1, T2>
+    public partial class ActionX<T1, T2>
     {
         private Action<T1, T2> _action;
 
-        public void AddListener(Action<T1, T2> action)
+        public void AddListener(in Action<T1, T2> action)
         {
             _action += action;
         }
 
-        public void RemoveListener(Action<T1, T2> action)
+        public void RemoveListener(in Action<T1, T2> action)
         {
             _action -= action;
         }
@@ -71,22 +77,25 @@ namespace SingularityLab.Runtime.Tools
             _action = null;
         }
 
-        public void Invoke(T1 arg1, T2 arg2)
+        /// <summary>
+        /// Checking for null.
+        /// </summary>
+        public void InvokeSafe(T1 arg1, T2 arg2)
         {
             _action?.Invoke(arg1, arg2);
         }
     }
     
-    public partial class CustomAction<T1, T2, T3>
+    public partial class ActionX<T1, T2, T3>
     {
         private Action<T1, T2, T3> _action;
 
-        public void AddListener(Action<T1, T2, T3> action)
+        public void AddListener(in Action<T1, T2, T3> action)
         {
             _action += action;
         }
 
-        public void RemoveListener(Action<T1, T2, T3> action)
+        public void RemoveListener(in Action<T1, T2, T3> action)
         {
             _action -= action;
         }
@@ -96,7 +105,10 @@ namespace SingularityLab.Runtime.Tools
             _action = null;
         }
 
-        public void Invoke(T1 arg1, T2 arg2, T3 arg3)
+        /// <summary>
+        /// Checking for null.
+        /// </summary>
+        public void InvokeSafe(in T1 arg1, in T2 arg2, in T3 arg3)
         {
             _action?.Invoke(arg1, arg2, arg3);
         }

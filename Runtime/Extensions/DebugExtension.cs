@@ -4,7 +4,7 @@ namespace SingularityLab.Runtime.Extensions
 {
     public static partial class DebugExtension
     {
-        public static void DrawDebugCube(Vector3 origin, Vector3 center, Vector3 extends, Color color)
+        public static void DrawDebugCube(in Vector3 origin, in Vector3 center, in Vector3 extends, in Color color)
         {
             var v3FrontTopLeft = new Vector3(center.x - extends.x, center.y + extends.y, center.z - extends.z); // Front top left corner
             var v3FrontTopRight = new Vector3(center.x + extends.x, center.y + extends.y, center.z - extends.z); // Front top right corner

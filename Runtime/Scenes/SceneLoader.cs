@@ -12,7 +12,7 @@ namespace SingularityLab.Runtime.Scenes
     {
         private readonly IAsyncOperationLoadingProgressController _progressController;
 
-        public SceneLoader(IAsyncOperationLoadingProgressController progressController)
+        public SceneLoader(in IAsyncOperationLoadingProgressController progressController)
         {
             _progressController = progressController;
         }

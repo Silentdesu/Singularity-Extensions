@@ -13,12 +13,12 @@ namespace SingularityLab.Runtime.Extensions
         /// <param name="list"></param>
         /// <param name="i"></param>
         /// <param name="j"></param>
-        public static void Swap<T>(this IList<T> list, int i, int j)
+        public static void Swap<T>(this IList<T> list, in int i, in int j)
         {
             (list[i], list[j]) = (list[j], list[i]);
         }
 
-        private static Random rng = new Random();
+        private static Random _rng = new Random();
 
         /// <summary>
         /// Shuffles list elements.
@@ -29,7 +29,7 @@ namespace SingularityLab.Runtime.Extensions
             while (n > 1)
             {
                 n--;
-                int k = rng.Next(n + 1);
+                int k = _rng.Next(n + 1);
                 (list[k], list[n]) = (list[n], list[k]);
             }
         }
@@ -43,7 +43,7 @@ namespace SingularityLab.Runtime.Extensions
             while (n > 1)
             {
                 n--;
-                int k = rng.Next(n + 1);
+                int k = _rng.Next(n + 1);
                 (targetArray[k], targetArray[n]) = (targetArray[n], targetArray[k]);
             }
         }
@@ -53,7 +53,7 @@ namespace SingularityLab.Runtime.Extensions
         /// </summary>
         public static T GetRandomElement<T>(this IList<T> list)
         {
-            return list[rng.Next(list.Count)];
+            return list[_rng.Next(list.Count)];
         }
 
         /// <summary>

@@ -6,7 +6,7 @@ namespace SingularityLab.Runtime.Extensions
 {
     public static partial class UIExtension
     {
-        public static bool IsPointerOverUIObject(float x, float y)
+        public static bool IsPointerOverUIObject(in float x, in float y)
         {
             var eventDataCurrentPosition = new PointerEventData(EventSystem.current)
             {
