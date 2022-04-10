@@ -66,14 +66,14 @@ namespace SingularityLab.Editor
         {
             EditorGUILayout.BeginHorizontal();
 
-            if (GUILayout.Button(sceneButtonParams.Name))
+            if (GUILayout.Button(sceneButtonParams.Name.ToString()))
             {
-                EditorSceneManager.OpenScene(sceneButtonParams.Path);
+                EditorSceneManager.OpenScene(sceneButtonParams.Path.ToString());
             }
 
             if (GUILayout.Button("L", GUILayout.Width(20)))
             {
-                var obj = AssetDatabase.LoadAssetAtPath(sceneButtonParams.Path, typeof(SceneAsset));
+                var obj = AssetDatabase.LoadAssetAtPath(sceneButtonParams.Path.ToString(), typeof(SceneAsset));
                 EditorGUIUtility.PingObject(obj);
             }
 
@@ -85,19 +85,6 @@ namespace SingularityLab.Editor
             var splitedScene = scenePath.Split('/');
             
             return splitedScene[splitedScene.Length - 1].Split('.')[0];
-        }
-
-        private string GetMainFolder()
-        {
-            foreach (var folder in AssetDatabase.GetSubFolders("Assets"))
-            {
-                if (folder.Contains("_"))
-                {
-                    return folder.Split('/')[1];
-                }
-            }
-
-            return "";
         }
     }
 }
