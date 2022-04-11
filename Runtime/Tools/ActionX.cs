@@ -16,7 +16,7 @@ namespace SingularityLab.Runtime.Tools
             _action -= action;
         }
 
-        public void RemoveAllListeners(in Action action)
+        public void RemoveAllListeners()
         {
             _action = null;
         }
@@ -44,7 +44,7 @@ namespace SingularityLab.Runtime.Tools
             _action -= action;
         }
 
-        public void RemoveAllListeners(in Action<T1> action)
+        public void RemoveAllListeners()
         {
             _action = null;
         }
@@ -73,7 +73,7 @@ namespace SingularityLab.Runtime.Tools
             _action -= action;
         }
 
-        public void RemoveAllListeners(in Action<T1, T2> action)
+        public void RemoveAllListeners()
         {
             _action = null;
         }
@@ -103,7 +103,7 @@ namespace SingularityLab.Runtime.Tools
             _action -= action;
         }
 
-        public void RemoveAllListeners(in Action<T1, T2, T3> action)
+        public void RemoveAllListeners()
         {
             _action = null;
         }

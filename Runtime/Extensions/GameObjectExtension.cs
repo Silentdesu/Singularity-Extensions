@@ -8,22 +8,23 @@ namespace SingularityLab.Runtime.Extensions
         /// <summary>
         /// No allocation GetComponent.
         /// </summary>
-        private static List<Component> m_ComponentCache = new List<Component>();
+        private static List<Component> _componentsCached = new List<Component>();
 
-        public static T GetComponentNoAlloc<T>(this GameObject @this) where T : Component
+        public static T GetComponentNoAlloc<T>(this Transform @this, in bool clearCache = false) where T : Component
         {
-            @this.GetComponents(typeof(T), m_ComponentCache);
-            var component = m_ComponentCache.Count > 0 ? m_ComponentCache[0] : null;
-            m_ComponentCache.Clear();
-            return component as T;
-        }
+            if (!clearCache)
+            {
+                foreach (var cachedComponent in _componentsCached)
+                    if (cachedComponent is T)
+                        return cachedComponent as T;
+            }
 
-        public static T GetComponentInChildNoAlloc<T>(this GameObject @this) where T : Component
-        {
-            @this.GetComponents(typeof(T), m_ComponentCache);
-            var component = m_ComponentCache.Count > 0 ? m_ComponentCache[0] : null;
-            m_ComponentCache.Clear();
-
+            @this.GetComponents(typeof(T), _componentsCached);
+            var component = _componentsCached.Count > 0 ? _componentsCached[0] : null;
+            
+            if (clearCache)
+                _componentsCached.Clear();
+            
             return component as T;
         }
 
@@ -50,30 +51,49 @@ namespace SingularityLab.Runtime.Extensions
             }
         }
 
-        public static List<Transform> GetAllChilds(this Transform parent)
+        public static List<Transform> GetAllChilds(this Transform @this)
         {
             List<Transform> tempList = new List<Transform>();
 
-            foreach (Transform child in parent)
+            foreach (Transform child in @this)
                 tempList.Add(child);
 
             return tempList;
         }
 
-        public static List<T> GetChildsByType<T>(this Transform parent)
+        private static List<Component> _childsCached = new List<Component>();
+
+        /// <summary>
+        /// Return cached gameobject with a specific type.
+        /// </summary>
+        /// <typeparam name="T">Type of component that's should be in gameobject</typeparam>
+        /// <param name="this"></param>
+        /// <param name="clearCache">if it's true then it will clear cache to refill with a new List</param>
+        /// <returns></returns>
+        public static List<T> GetChildsNoAlloc<T>(this Transform @this, in bool clearCache = false) where T : Component
         {
-            List<T> tempList = new List<T>();
+            if (clearCache)
+                _childsCached.Clear();
 
-            foreach (Transform child in parent)
+            if (_childsCached.Count != 0)
+            {
+                for (var i = 0; i < _childsCached.Count; i++)
+                    if (!_childsCached[i].TryGetComponent(out T component))
+                        _childsCached.Remove(_childsCached[i]);
+
+                return _childsCached as List<T>;
+            }
+
+            foreach (Transform child in @this)
                 if (child.TryGetComponent(out T component))
-                    tempList.Add(component);
+                    _childsCached.Add(child);
 
-            return tempList;
+            return _childsCached as List<T>;
         }
 
-        public static void DestroyAllChildren(this Transform parent)
+        public static void DestroyAllChildren(this Transform @this)
         {
-            foreach (Transform child in parent)
+            foreach (Transform child in @this)
             {
                 Object.Destroy(child.gameObject);
             }
