@@ -1,4 +1,5 @@
 ﻿using System.Collections.Generic;
+using System.Linq;
 using UnityEngine;
 
 namespace SingularityLab.Runtime.Extensions
@@ -70,25 +71,40 @@ namespace SingularityLab.Runtime.Extensions
         /// <param name="this"></param>
         /// <param name="clearCache">if it's true then it will clear cache to refill with a new List</param>
         /// <returns></returns>
-        public static List<T> GetChildsNoAlloc<T>(this Transform @this, in bool clearCache = false) where T : Component
+        public static List<T> GetChildsByTypeNoAlloc<T>(this GameObject @this, out List<T> outputList, in bool clearCache = false) where T : Component
         {
+            outputList = new List<T>();
+
             if (clearCache)
                 _childsCached.Clear();
 
             if (_childsCached.Count != 0)
             {
                 for (var i = 0; i < _childsCached.Count; i++)
+                {
                     if (!_childsCached[i].TryGetComponent(out T component))
+                    {
                         _childsCached.Remove(_childsCached[i]);
+                        continue;
+                    }
 
-                return _childsCached as List<T>;
+                    outputList.Add(component);
+
+                    if (i == _childsCached.Count - 1)
+                        return outputList;
+                }
             }
 
-            foreach (Transform child in @this)
+            foreach (Transform child in @this.transform)
+            {
                 if (child.TryGetComponent(out T component))
+                {
                     _childsCached.Add(child);
+                    outputList.Add(component);
+                }
+            }
 
-            return _childsCached as List<T>;
+            return outputList;
         }
 
         public static void DestroyAllChildren(this Transform @this)
