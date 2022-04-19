@@ -6,9 +6,17 @@ namespace SingularityLab.Runtime.Tools
     {
         private Action _action;
 
-        public void AddListener(in Action action)
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="action"></param>
+        /// <param name="invokeMethod">Invoke method after the subscription.</param>
+        public void AddListener(in Action action, in bool invokeMethod = false)
         {
             _action += action;
+
+            if (invokeMethod)
+                action();
         }
 
         public void RemoveListener(in Action action)
@@ -30,16 +38,28 @@ namespace SingularityLab.Runtime.Tools
         }
     }
 
-    public struct ActionX<T1>
+    public struct ActionX<T>
     {
-        private Action<T1> _action;
+        private Action<T> _action;
 
-        public void AddListener(in Action<T1> action)
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="action"></param>
+        /// <param name="invokeMethod">Invoke method after the subscription.</param>
+        public void AddListener(in Action<T> action, in bool invokeMethod = false)
         {
             _action += action;
+
+            if (invokeMethod)
+            {
+                T arg = default;
+
+                action?.Invoke(arg);
+            }
         }
 
-        public void RemoveListener(in Action<T1> action)
+        public void RemoveListener(in Action<T> action)
         {
             _action -= action;
         }
@@ -52,10 +72,10 @@ namespace SingularityLab.Runtime.Tools
         /// <summary>
         /// Checking for null.
         /// </summary>
-        /// <param name="arg1"></param>
-        public void InvokeSafe(T1 arg1)
+        /// <param name="arg"></param>
+        public void InvokeSafe(T arg)
         {
-            _action?.Invoke(arg1);
+            _action?.Invoke(arg);
         }
     }
 
@@ -63,9 +83,22 @@ namespace SingularityLab.Runtime.Tools
     {
         private Action<T1, T2> _action;
 
-        public void AddListener(in Action<T1, T2> action)
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="action"></param>
+        /// <param name="invokeMethod">Invoke method after the subscription.</param>
+        public void AddListener(in Action<T1, T2> action, in bool invokeMethod)
         {
             _action += action;
+
+            if (invokeMethod)
+            {
+                T1 arg1 = default;
+                T2 arg2 = default;
+
+                action?.Invoke(arg1, arg2);
+            }
         }
 
         public void RemoveListener(in Action<T1, T2> action)
@@ -93,9 +126,23 @@ namespace SingularityLab.Runtime.Tools
     {
         private Action<T1, T2, T3> _action;
 
-        public void AddListener(in Action<T1, T2, T3> action)
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="action"></param>
+        /// <param name="invokeMethod">Invoke method after the subscription.</param>
+        public void AddListener(in Action<T1, T2, T3> action, in bool invokeMethod)
         {
             _action += action;
+        
+            if (invokeMethod)
+            {
+                T1 arg1 = default;
+                T2 arg2 = default;
+                T3 arg3 = default;
+
+                action?.Invoke(arg1, arg2, arg3);
+            }
         }
 
         public void RemoveListener(in Action<T1, T2, T3> action)
