@@ -42,21 +42,9 @@ namespace SingularityLab.Runtime.Tools
     {
         private Action<T> _action;
 
-        /// <summary>
-        /// 
-        /// </summary>
-        /// <param name="action"></param>
-        /// <param name="invokeMethod">Invoke method after the subscription.</param>
-        public void AddListener(in Action<T> action, in bool invokeMethod = false)
+        public void AddListener(in Action<T> action)
         {
             _action += action;
-
-            if (invokeMethod)
-            {
-                T arg = default;
-
-                action?.Invoke(arg);
-            }
         }
 
         public void RemoveListener(in Action<T> action)
@@ -83,22 +71,9 @@ namespace SingularityLab.Runtime.Tools
     {
         private Action<T1, T2> _action;
 
-        /// <summary>
-        /// 
-        /// </summary>
-        /// <param name="action"></param>
-        /// <param name="invokeMethod">Invoke method after the subscription.</param>
-        public void AddListener(in Action<T1, T2> action, in bool invokeMethod)
+        public void AddListener(in Action<T1, T2> action)
         {
             _action += action;
-
-            if (invokeMethod)
-            {
-                T1 arg1 = default;
-                T2 arg2 = default;
-
-                action?.Invoke(arg1, arg2);
-            }
         }
 
         public void RemoveListener(in Action<T1, T2> action)
@@ -126,23 +101,9 @@ namespace SingularityLab.Runtime.Tools
     {
         private Action<T1, T2, T3> _action;
 
-        /// <summary>
-        /// 
-        /// </summary>
-        /// <param name="action"></param>
-        /// <param name="invokeMethod">Invoke method after the subscription.</param>
-        public void AddListener(in Action<T1, T2, T3> action, in bool invokeMethod)
+        public void AddListener(in Action<T1, T2, T3> action)
         {
             _action += action;
-        
-            if (invokeMethod)
-            {
-                T1 arg1 = default;
-                T2 arg2 = default;
-                T3 arg3 = default;
-
-                action?.Invoke(arg1, arg2, arg3);
-            }
         }
 
         public void RemoveListener(in Action<T1, T2, T3> action)
