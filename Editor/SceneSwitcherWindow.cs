@@ -11,6 +11,7 @@ namespace SingularityLab.Editor
     {
         public string DevFolderName;
         private List<string> _scenesPaths;
+        private Vector2 _scrollPos;
 
         [MenuItem("Tools/Scene Switcher")]
         private static void ShowWindow()
@@ -46,7 +47,9 @@ namespace SingularityLab.Editor
             
             GUILayout.Space(15);
             GUILayout.Label("All scenes");
+
             EditorGUILayout.BeginVertical();
+            _scrollPos = EditorGUILayout.BeginScrollView(_scrollPos, GUILayout.Width(Screen.width), GUILayout.Height(Screen.height / 2));
             {
                 foreach (string scenesPath in _scenesPaths)
                 {
@@ -59,6 +62,7 @@ namespace SingularityLab.Editor
                     AddButton(new SceneButtonParams(scene, scenesPath));
                 }
             }
+            EditorGUILayout.EndScrollView();
             EditorGUILayout.EndVertical();
         }
 
