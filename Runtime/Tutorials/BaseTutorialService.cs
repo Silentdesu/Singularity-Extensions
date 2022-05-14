@@ -1,6 +1,6 @@
-﻿using System.Collections;
+﻿using SingularityLab.Runtime.Tools;
+using System.Collections;
 using System.Collections.Generic;
-using SingularityLab.Runtime.Tools;
 using UnityEngine;
 
 namespace SingularityLab.Runtime.Tutorials

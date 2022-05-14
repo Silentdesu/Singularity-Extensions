@@ -1,6 +1,6 @@
-﻿using System;
-using SingularityLab.Runtime.Tools;
+﻿using SingularityLab.Runtime.Tools;
 using SingularityLab.Runtime.UI;
+using System;
 using UnityEngine;
 using UnityEngine.AddressableAssets;
 using UnityEngine.ResourceManagement.AsyncOperations;

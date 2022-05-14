@@ -16,7 +16,7 @@ namespace SingularityLab.Runtime.Tools
             _action += action;
 
             if (invokeMethod)
-                action();
+                action?.Invoke();
         }
 
         public void RemoveListener(in Action action)

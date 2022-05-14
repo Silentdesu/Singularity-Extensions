@@ -1,20 +1,23 @@
-using System;
 using SingularityLab.Runtime.Tools;
 using SingularityLab.Runtime.UI;
+using System;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
 namespace SingularityLab.Runtime.Scenes
 {
-    public sealed class SceneLoaderHandler
+    public struct SceneLoaderHandler
     {
-        public int CurrentGameplaySceneIndex { get; private set; } = 0;
+        public int CurrentGameplaySceneIndex;
 
-        private SceneLoadingParams _currentGameplayScene = new SceneLoadingParams();
+        private SceneLoadingParams _currentGameplayScene;
 
         public SceneLoaderHandler(GameObject graphyPrefab = null, 
         bool forceShowGraphy = false, bool forceShowGraphyInEditor = false)
         {
+            CurrentGameplaySceneIndex = 0;
+            _currentGameplayScene = new SceneLoadingParams();
+
             if ((!Application.isEditor && (Debug.isDebugBuild || forceShowGraphy)) 
                 || (Application.isEditor && forceShowGraphyInEditor))
             {
@@ -58,10 +61,7 @@ namespace SingularityLab.Runtime.Scenes
                 _currentGameplayScene.SceneName = SceneManager.GetActiveScene().name; 
             }
             
-            sceneLoader.Load(_currentGameplayScene, () =>
-            {
-                DebugX.SceneLoaded($"{_currentGameplayScene} has loaded");            
-            }, error => { DebugX.Error($"Could not load: {_currentGameplayScene}, {error}");});
+            sceneLoader.Load(_currentGameplayScene, OnSceneLoadComplete, OnSceneLoadFailed);
         }
 
         public string GetCurrentSceneName()
@@ -69,5 +69,14 @@ namespace SingularityLab.Runtime.Scenes
             return _currentGameplayScene.SceneName;
         }
 
+        private void OnSceneLoadComplete()
+        {
+            DebugX.SceneLoaded($"{_currentGameplayScene} has loaded");
+        }
+
+        private void OnSceneLoadFailed(string error)
+        {
+            DebugX.Error($"Could not load: {_currentGameplayScene}, {error}");
+        }
     }
 }

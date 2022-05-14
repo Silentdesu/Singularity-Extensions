@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Diagnostics;
 using System.Linq;
 using System.Text;
+using UnityEngine;
 using Debug = UnityEngine.Debug;
 
 namespace SingularityLab.Runtime.Tools
@@ -34,7 +35,7 @@ namespace SingularityLab.Runtime.Tools
             _stringBuilder.Append(messageType);
             _stringBuilder.Append(message);
 
-            Debug.unityLogger.Log(_stringBuilder);
+            UnityEngine.Debug.unityLogger.Log(_stringBuilder);
 #endif
         }
 
