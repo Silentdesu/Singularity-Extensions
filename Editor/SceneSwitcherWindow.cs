@@ -4,6 +4,7 @@ using System.Linq;
 using UnityEditor;
 using UnityEditor.SceneManagement;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 namespace SingularityLab.Editor
 {
@@ -12,6 +13,8 @@ namespace SingularityLab.Editor
         public string DevFolderName;
         private List<string> _scenesPaths;
         private Vector2 _scrollPos;
+
+        private const string _projectScenes = "_Project/_Scenes";
 
         [MenuItem("Tools/Scene Switcher")]
         private static void ShowWindow()
@@ -37,14 +40,14 @@ namespace SingularityLab.Editor
             {
                 OnEnable();
             }
-                    
+
             GUILayout.Label("Reference Scenes");
 
             // ~~~~EXAMPLE OF HOW TO MAKE A STATIC BUTTON~~~~
             // AddButton(new SceneButtonParams("Button_Name", _scenesPaths.FirstOrDefault(a => a.Contains("Path_Name"))));
-            
+
             // ~~~~TRY YOUR SELF~~~~
-            
+
             GUILayout.Space(15);
             GUILayout.Label("All scenes");
 
@@ -53,7 +56,7 @@ namespace SingularityLab.Editor
             {
                 foreach (string scenesPath in _scenesPaths)
                 {
-                    if (!scenesPath.Contains($"_Project/_Scenes"))
+                    if (!scenesPath.Contains(_projectScenes, System.StringComparison.OrdinalIgnoreCase))
                     {
                         continue;
                     }
@@ -70,7 +73,7 @@ namespace SingularityLab.Editor
         {
             EditorGUILayout.BeginHorizontal();
 
-            if (GUILayout.Button(sceneButtonParams.Name.ToString()))
+            if (GUILayout.Button(sceneButtonParams.Name.ToString()) && EditorSceneManager.SaveCurrentModifiedScenesIfUserWantsTo())
             {
                 EditorSceneManager.OpenScene(sceneButtonParams.Path.ToString());
             }
@@ -87,7 +90,7 @@ namespace SingularityLab.Editor
         private string GetSceneName(in string scenePath)
         {
             var splitedScene = scenePath.Split('/');
-            
+
             return splitedScene[splitedScene.Length - 1].Split('.')[0];
         }
     }

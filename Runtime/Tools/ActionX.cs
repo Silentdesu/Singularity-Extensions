@@ -2,6 +2,11 @@
 
 namespace SingularityLab.Runtime.Tools
 {
+    /// <summary>
+    /// This is struct so keep in mind if you want to use it then keep it in classes.
+    /// 
+    /// This struct was created as an analogue for class CustomAction.
+    /// </summary>
     public struct ActionX
     {
         private Action _action;

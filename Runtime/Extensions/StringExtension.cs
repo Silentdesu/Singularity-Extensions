@@ -9,7 +9,7 @@ namespace SingularityLab.Runtime.Extensions
         /// <summary>
         /// Convert long type to string with comma.
         /// </summary>
-        public static string ToBigNumberString(this long number)
+        public static string ToBigNumber(this long number)
         {
             _stringBuilder.Clear();
 
@@ -52,7 +52,7 @@ namespace SingularityLab.Runtime.Extensions
         /// <summary>
         /// Convert double type to string with comma.
         /// </summary>
-        public static string ToBigNumberString(this double number)
+        public static string ToBigNumber(this double number)
         {
             _stringBuilder.Clear();
 
@@ -93,7 +93,7 @@ namespace SingularityLab.Runtime.Extensions
         /// <summary>
         /// Convert double type of seconds to string with suffix 's'
         /// </summary>
-        public static string ToSecondsString(this double seconds)
+        public static string ToSeconds(this double seconds)
         {
             _stringBuilder.Clear();
 

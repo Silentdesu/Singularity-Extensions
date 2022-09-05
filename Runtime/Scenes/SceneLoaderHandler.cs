@@ -12,11 +12,16 @@ namespace SingularityLab.Runtime.Scenes
 
         private SceneLoadingParams _currentGameplayScene;
 
-        public SceneLoaderHandler(GameObject graphyPrefab = null, 
+        public SceneLoaderHandler(in SceneLoadingParams sceneLoadingParams, in GameObject graphyPrefab = null, 
         bool forceShowGraphy = false, bool forceShowGraphyInEditor = false)
         {
             CurrentGameplaySceneIndex = 0;
-            _currentGameplayScene = new SceneLoadingParams();
+
+            _currentGameplayScene = new SceneLoadingParams()
+            {
+                SceneName = sceneLoadingParams.SceneName,
+                LoadSceneMode = sceneLoadingParams.LoadSceneMode,
+            };
 
             if ((!Application.isEditor && (Debug.isDebugBuild || forceShowGraphy)) 
                 || (Application.isEditor && forceShowGraphyInEditor))
@@ -32,8 +37,6 @@ namespace SingularityLab.Runtime.Scenes
         public void LoadSceneByName(string sceneName, LoadSceneMode loadSceneMode = LoadSceneMode.Single)
         {
             var sceneLoader = new SceneLoader(new LoadingProgressBar());
-
-            Application.targetFrameRate = 60;
             
             var sceneLoadingParams = new SceneLoadingParams();
 
