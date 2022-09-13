@@ -1,6 +1,6 @@
 {
   "name": "com.singularity-lab.extensions",
-  "version": "1.0.10",
+  "version": "1.0.11",
   "displayName": "Singularity Lab Extensions",
   "description": "Singularity Lab Framework",
   "dependencies": {
