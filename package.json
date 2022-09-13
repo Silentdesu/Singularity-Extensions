@@ -4,8 +4,8 @@
   "displayName": "Singularity Lab Extensions",
   "description": "Singularity Lab Framework",
   "dependencies": {
-    "com.unity.addressables": "1.*.*",
-    "com.unity.inputsystem": "1.*.*"
+    "com.unity.addressables": "1.19.19",
+    "com.unity.inputsystem": "1.4.1"
   },
   "author": {
     "name": "Singularity Lab",
