@@ -2,7 +2,7 @@
 using System.IO;
 using UnityEngine;
 
-namespace VRunner.DataPersistence
+namespace SingularityLab.Runtime.SLLIO
 {
     public class FileDataHandler<T>
     {
