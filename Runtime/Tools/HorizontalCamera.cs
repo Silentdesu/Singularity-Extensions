@@ -3,7 +3,7 @@ using UnityEngine;
 namespace SingularityLab.Runtime.Tools
 {
     [ExecuteInEditMode]
-    public class HorizontalCamera : MonoBehaviour
+    public sealed class HorizontalCamera : MonoBehaviour
     {
         private Camera m_camera;
         private float lastAspect;

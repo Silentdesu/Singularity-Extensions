@@ -1,6 +1,7 @@
 using System.Collections;
 using UnityEngine;
 using UnityEngine.ResourceManagement.AsyncOperations;
+using SingularityLab.Runtime.Tools;
 
 namespace SingularityLab.Runtime.UI
 {
@@ -16,7 +17,7 @@ namespace SingularityLab.Runtime.UI
                 yield return null;
             }
 
-            Debug.Log("Download completed");
+            DebugX.Success("Download completed");
         }
 
         public IEnumerator ShowProgress(AsyncOperation operation)
@@ -28,7 +29,7 @@ namespace SingularityLab.Runtime.UI
                 yield return null;
             }
 
-            Debug.Log("Download completed");
+            DebugX.Success("Download completed");
         }
     }
 }

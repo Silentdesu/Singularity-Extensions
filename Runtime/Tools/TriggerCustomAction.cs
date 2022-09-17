@@ -1,6 +1,6 @@
 ﻿namespace SingularityLab.Runtime.Tools
 {
-    public partial class TriggerCustomAction
+    public sealed partial class TriggerCustomAction
     {
         public CustomAction<bool> OnChange { get; } = new();
         public bool Value { get; private set; } = false;

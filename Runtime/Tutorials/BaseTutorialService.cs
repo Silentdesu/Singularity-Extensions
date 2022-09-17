@@ -7,7 +7,7 @@ namespace SingularityLab.Runtime.Tutorials
 {
     public abstract class BaseTutorialService : MonoBehaviour
     {
-        protected readonly List<ITutorial> _tutorials = new List<ITutorial>();
+        protected List<ITutorial> _tutorials = new List<ITutorial>();
 
         protected virtual void Awake() { }
 
@@ -27,7 +27,7 @@ namespace SingularityLab.Runtime.Tutorials
 
         protected virtual IEnumerator ExecuteTutorials()
         {
-            DebugX.Warning(_tutorials.Count == 0? "Tutorials list is empty" : "Tutorial has been started");
+            DebugX.Warning(_tutorials.Count == 0 ? "Tutorials list is empty" : "Tutorial has been started");
             
             foreach (var tutorial in _tutorials)
             {

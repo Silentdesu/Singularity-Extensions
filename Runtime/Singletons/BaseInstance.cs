@@ -5,7 +5,7 @@ using UnityEngine;
 namespace SingularityLab.Runtime.Singletons
 {
     [DefaultExecutionOrder(-100)]
-    public class BaseInstance<T> : SerializedMonoBehaviour where T : MonoBehaviour
+    public abstract class BaseInstance<T> : SerializedMonoBehaviour where T : MonoBehaviour
     {
         private static T _instance;
 
@@ -39,8 +39,6 @@ namespace SingularityLab.Runtime.Singletons
             _instance = this as T;
             
             DebugX.Success($"{typeof(T).FullName} Instance Ready!");
-
         }
-
     }
 }

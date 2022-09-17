@@ -2,7 +2,7 @@
 
 namespace SingularityLab.Runtime.Tools
 {
-    public partial class CustomAction
+    public sealed partial class CustomAction
     {
         private Action _action;
 

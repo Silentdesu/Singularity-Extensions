@@ -31,18 +31,18 @@ namespace SingularityLab.Runtime.Scenes
                     UnityEngine.Object.Instantiate(graphyPrefab);
                 }
             }
-
         }
 
         public void LoadSceneByName(string sceneName, LoadSceneMode loadSceneMode = LoadSceneMode.Single)
         {
             var sceneLoader = new SceneLoader(new LoadingProgressBar());
             
-            var sceneLoadingParams = new SceneLoadingParams();
+            var sceneLoadingParams = new SceneLoadingParams()
+            {
+                SceneName = sceneName,
+                LoadSceneMode = loadSceneMode
+            };
 
-            sceneLoadingParams.LoadSceneMode = loadSceneMode;
-            sceneLoadingParams.SceneName = sceneName;
-            
             _currentGameplayScene = sceneLoadingParams;
             
             sceneLoader.Load(sceneLoadingParams,
@@ -56,7 +56,6 @@ namespace SingularityLab.Runtime.Scenes
         public void LoadCurrentScene()
         {
             var sceneLoader = new SceneLoader(new LoadingProgressBar());
-            Application.targetFrameRate = 60;
 
             if (String.IsNullOrEmpty(_currentGameplayScene.SceneName))
             {

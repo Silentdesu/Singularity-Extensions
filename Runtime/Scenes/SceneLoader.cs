@@ -8,7 +8,7 @@ using UnityEngine.ResourceManagement.ResourceProviders;
 
 namespace SingularityLab.Runtime.Scenes
 {
-    public class SceneLoader
+    public sealed class SceneLoader
     {
         private readonly IAsyncOperationLoadingProgressController _progressController;
 

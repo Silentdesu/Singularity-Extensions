@@ -8,7 +8,7 @@ using UnityEngine.SceneManagement;
 
 namespace SingularityLab.Editor
 {
-    public class SceneSwitcherWindow : EditorWindow
+    sealed class SceneSwitcherWindow : EditorWindow
     {
         public string DevFolderName;
         private List<string> _scenesPaths;

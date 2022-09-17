@@ -3,7 +3,7 @@ using UnityEngine.UI;
 
 namespace SingularityLab.Runtime.UI
 {
-    public class LoadingProgressController : MonoBehaviour
+    public sealed class LoadingProgressController : MonoBehaviour
     {
         public static LoadingProgressController Instance;
         [SerializeField] private Image _image;

@@ -2,7 +2,7 @@
 
 namespace SingularityLab.Runtime.Tools
 {
-    public class MainThreadRunner : MonoBehaviour
+    public sealed class MainThreadRunner : MonoBehaviour
     {
         private static MainThreadRunner _instance;
 

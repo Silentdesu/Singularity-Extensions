@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using SingularityLab.Runtime.Tools;
+using System.Collections;
 using UnityEngine;
 using UnityEngine.ResourceManagement.AsyncOperations;
 
@@ -12,10 +13,13 @@ namespace SingularityLab.Runtime.UI
             {
                 var downloadStatus = operation.GetDownloadStatus();
                 LoadingProgressController.Instance.SetProgress(Mathf.Min(operation.PercentComplete, 0.9f));
-                Debug.Log(Mathf.Min(operation.PercentComplete, 0.9f));
+
+                DebugX.Log(Mathf.Min(operation.PercentComplete, 0.9f).ToString());
+                
                 yield return null;
             }
-            Debug.Log("Download completed");
+
+            DebugX.Success("Download completed");
         }
         
         
@@ -24,12 +28,13 @@ namespace SingularityLab.Runtime.UI
             while (!operation.isDone)
             {
                 LoadingProgressController.Instance.SetProgress(Mathf.Min(operation.progress, 0.9f));
-                Debug.Log(Mathf.Min(operation.progress, 0.9f));
+                
+                DebugX.Log(Mathf.Min(operation.progress, 0.9f).ToString());
 
                 yield return null;
             }
 
-            Debug.Log("Download completed");
+            DebugX.Success("Download completed");
         }
     }
 }

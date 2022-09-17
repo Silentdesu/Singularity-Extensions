@@ -23,29 +23,33 @@ namespace SingularityLab.Runtime.Extensions
         /// <summary>
         /// Shuffles list elements.
         /// </summary>
-        public static void Shuffle<T>(this IList<T> list)
+        public static IList<T> Shuffle<T>(this IList<T> self)
         {
-            int n = list.Count;
+            int n = self.Count;
             while (n > 1)
             {
                 n--;
                 int k = _rng.Next(n + 1);
-                (list[k], list[n]) = (list[n], list[k]);
+                (self[k], self[n]) = (self[n], self[k]);
             }
+
+            return self;
         }
 
         /// <summary>
         /// Shuffles array elements.
         /// </summary>
-        public static void Shuffle<T>(this T[] targetArray)
+        public static T[] Shuffle<T>(this T[] self)
         {
-            int n = targetArray.Length;
+            int n = self.Length;
             while (n > 1)
             {
                 n--;
                 int k = _rng.Next(n + 1);
-                (targetArray[k], targetArray[n]) = (targetArray[n], targetArray[k]);
+                (self[k], self[n]) = (self[n], self[k]);
             }
+
+            return self;
         }
 
         /// <summary>
@@ -53,11 +57,11 @@ namespace SingularityLab.Runtime.Extensions
         /// </summary>
         public static T GetRandomElement<T>(this IList<T> list)
         {
-            return list[_rng.Next(list.Count)];
+            return list[_rng.Next(list.Count - 1)];
         }
 
         /// <summary>
-        /// Clear an array
+        /// Clear an array.
         /// </summary> 
         public static void Clear<T>(this T[] array)
         {
@@ -67,6 +71,12 @@ namespace SingularityLab.Runtime.Extensions
             }
         }
 
+        /// <summary>
+        /// Clone a list.
+        /// </summary>
+        /// <typeparam name="T">Type.</typeparam>
+        /// <param name="listToClone">Original list.</param>
+        /// <returns></returns>
         public static IList<T> Clone<T>(this IList<T> listToClone) where T : ICloneable
         {
             return listToClone.Select(item => (T) item.Clone()).ToList();

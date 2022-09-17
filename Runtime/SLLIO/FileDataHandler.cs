@@ -4,7 +4,7 @@ using UnityEngine;
 
 namespace SingularityLab.Runtime.SLLIO
 {
-    public class FileDataHandler<T>
+    public sealed class FileDataHandler<T>
     {
         private string _dataDirPath = string.Empty;
         private string _dataFileName = string.Empty;

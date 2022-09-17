@@ -8,7 +8,7 @@ namespace SingularityLab.Runtime.Tools
     /// <summary>
     /// Store data
     /// </summary>
-    public class PlayerPrefsX
+    public sealed class PlayerPrefsX
     {
         static private int endianDiff1;
         static private int endianDiff2;

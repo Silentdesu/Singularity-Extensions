@@ -6,7 +6,7 @@ using UnityEngine;
 
 namespace SingularityLab.Runtime.UI
 {
-    public class LoadingScreenController : BaseInstanceDontDestroy<LoadingScreenController>
+    public sealed class LoadingScreenController : BaseInstanceDontDestroy<LoadingScreenController>
     {
         [SerializeField] private TextMeshProUGUI _textMeshProUGUI;
         [SerializeField] private CanvasGroup _canvasGroup;

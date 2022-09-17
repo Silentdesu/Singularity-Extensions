@@ -2,7 +2,7 @@
 
 namespace SingularityLab.Runtime.Scenes
 {
-    public class SceneLoadingParams
+    public sealed class SceneLoadingParams
     {
         public string SceneName;
         public LoadSceneMode LoadSceneMode = LoadSceneMode.Additive;

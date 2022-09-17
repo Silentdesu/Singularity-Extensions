@@ -3,7 +3,7 @@ using UnityEngine;
 
 namespace SingularityLab.Runtime.UI
 {
-    public class BaseUIController<T> : BaseInstance<T> where T : MonoBehaviour
+    public abstract class BaseUIController<T> : BaseInstance<T> where T : MonoBehaviour
     {
         [SerializeField] private Canvas _rootCanvas;
 
@@ -18,7 +18,6 @@ namespace SingularityLab.Runtime.UI
         }
 
         public Transform RootTransform => RootCanvas.transform;
-
     }
 
 }
