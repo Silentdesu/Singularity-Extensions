@@ -4,7 +4,7 @@ using UnityEngine.EventSystems;
 
 namespace SingularityLab.Runtime.Extensions
 {
-    public static partial class UIExtension
+    public static partial class UIStandardExtension
     {
         public static bool IsPointerOverUIObject(in float x, in float y)
         {

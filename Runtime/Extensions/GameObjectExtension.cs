@@ -114,5 +114,12 @@ namespace SingularityLab.Runtime.Extensions
                 Object.Destroy(child.gameObject);
             }
         }
+
+        public static void ResetTransformation(this Transform @this)
+        {
+            @this.position = Vector3.zero;
+            @this.rotation = Quaternion.identity;
+            @this.localScale = Vector3.one;
+        }
     }
 }
